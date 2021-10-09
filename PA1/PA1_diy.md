@@ -70,8 +70,45 @@
 
 # 3. SLAM 综述文献阅读（3pt, 3h）
 
+> 3.1 SLAM 会在哪些场合中⽤到？⾄少列举三个⽅向。 
+
++ 增强现实
++ 自动驾驶
++ 救援任务
+
+
+> 3.2 SLAM 中定位与建图是什么关系？为什么在定位的同时需要建图？
+
++ For being precisely localized in an environment, a correct map is necessary, but in order to construct a good map it is necessary to be properly localized when elements are added to the map.
++ 为了在环境中精确定位，需要一个正确的建图，但为了构建一个好的地图，在向地图添加元素时，需要正确的定位。
+
+> 3.3 SLAM 发展历史如何？我们可以将它划分成哪⼏个阶段？ 
+
++ classical age (1986-2004)
+  + the introduction of the main probabilistic formulations for SLAM
++ algorithmic-analysis age (2004-2015)
+  + the study of fundamental properties of SLAM
++ nowadays
+
+> 3.4 列举三篇在 SLAM 领域的经典⽂献。
+
++ [1] C. Cadena, L. Carlone, H. Carrillo, Y. Latif, D. Scaramuzza, J. Neira, I. Reid, and J. J. Leonard, “Past, present, and future of simultaneous localization and mapping: Toward the robust-perception age,” IEEE Transactions on Robotics, vol. 32, no. 6, pp. 1309–1332, 2016.
++ [2] J. Fuentes-Pacheco, J. Ruiz-Ascencio, and J. M. Rendón-Mancha, “Visual simultaneous localization and mapping: a survey,” Artificial Intelligence Review, vol. 43, no. 1, pp. 55–81, 2015.
++ [3] L. Haomin, Z. Guofeng, and B. Hujun, “A survey of monocular simultaneous localization and mapping,”Journal of Computer-Aided Design and Compute Graphics, vol. 28, no. 6, pp. 855–868, 2016. in Chinese.
+
 
 # 4. CMake 练习（2pt, 1.5h）
+
+> 4.1 include/hello.h 和 src/hello.c 构成了 libhello.so 库。hello.c 中提供⼀个函数 sayHello()，调⽤此函 数时往屏幕输出⼀⾏“HelloSLAM”。我们已经为你准备了 hello.h 和 hello.c 这两个⽂件，见“code/” ⽬录下。
+> 
+> 4.2 ⽂件 useHello.c 中含有⼀个 main 函数，它可以编译成⼀个可执⾏⽂件，名为“sayhello”。 
+> 
+> 4.3 默认⽤ Release 模式编译这个⼯程。 
+> 
+> 4.4 如果⽤户使⽤ sudo make install，那么将 hello.h 放⾄/usr/local/include/下，将 libhello.so 放 ⾄/usr/local/lib/下。
+> s
+> 请按照上述要求组织源代码⽂件，并书写 CMakeLists.txt。
+ 
 
 
 # 5. 理解 ORB-SLAM2 框架（3pt, 2h）

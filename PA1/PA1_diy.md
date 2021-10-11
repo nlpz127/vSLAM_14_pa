@@ -163,4 +163,4 @@ SET(CMAKE_BUILD_TYPE "Release")
 # 5. 理解 ORB-SLAM2 框架（3pt, 2h）
 
 
-# 6. 使用摄像头或视频运行 ORB-SLAM2（3pt, 1h）
+# 6. *使用摄像头或视频运行 ORB-SLAM2（3pt, 1h）

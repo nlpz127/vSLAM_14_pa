@@ -106,10 +106,59 @@
 > 4.3 默认⽤ Release 模式编译这个⼯程。 
 > 
 > 4.4 如果⽤户使⽤ sudo make install，那么将 hello.h 放⾄/usr/local/include/下，将 libhello.so 放 ⾄/usr/local/lib/下。
-> s
+> 
 > 请按照上述要求组织源代码⽂件，并书写 CMakeLists.txt。
- 
 
+## 文件树
+
+> 更改了文件后缀名为 .cpp
+
+```
+├── CMakeLists.txt
+├── include
+│   └── hello.h
+├── Release
+├── src
+│   └── hello.cpp
+└── useHello.cpp
+```
+
+```cmake
+#CMakeLists.txt
+cmake_minimum_required(VERSION 2.7)
+project(hello_slam)
+############################################################
+# Create a library
+############################################################
+#根据hello.cpp生成动态库
+add_library(libhello SHARED 
+    src/hello.cpp
+)
+#为这个库目标，添加头文件路径，PUBLIC表示包含了这个库的目标也会包含这个路径
+target_include_directories(libhello
+    PUBLIC 
+        ${PROJECT_SOURCE_DIR}/include
+)
+############################################################
+# Create an executable
+############################################################
+#根据main.cpp生成可执行文件
+add_executable(sayhello
+	useHello.cpp
+)
+#链接库和可执行文件，使用的是这个库的别名。PRIVATE 表示
+target_link_libraries(sayhello
+    PRIVATE 
+        libhello
+)
+############################################################
+#set release
+############################################################
+SET(CMAKE_BUILD_TYPE "Release")
+```
+## 执行截图
+
+![](../pic/1/ans4.png)
 
 # 5. 理解 ORB-SLAM2 框架（3pt, 2h）
 

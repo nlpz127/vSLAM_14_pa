@@ -162,5 +162,78 @@ SET(CMAKE_BUILD_TYPE "Release")
 
 # 5. 理解 ORB-SLAM2 框架（3pt, 2h）
 
++ 下载 ORB-SLAM2
++ https://github.com/raulmur/ORB_SLAM2
+  + 因为下不下来，fork 到自己的 github 上了
+    + https://github.com/PzLu/ORB_SLAM2
+
+
+![](../pic/1/ans5-1.png)
+
+> 5.1 ORB-SLAM2 将编译出什么结果？有⼏个库⽂件和可执⾏⽂件？
+
++ Release 模式编译结果
++ 库和可执行文件
+  + 库文件：19（shared）+ 5 = 24个
+  + 可执行文件：6个
+
+> 5.2 ORB-SLAM2 中的 include, src, Examples 三个⽂件夹中都含有什么内容？
+
++ include：包含一系列头文件
+
+![](../pic/1/ans5-2.png)
+
++ src：包含一系列 cc 文件
+
+![](../pic/1/ans5-3.png)
+
++ Examples：RUNTIME_OUTPUT 文件
+
+![](../pic/1/ans5-4.png)
+
+> 5.3 ORB-SLAM2 中的可执⾏⽂件链接到了哪些库？它们的名字是什么？
+
++ rgbd_tum，stereo_kitti，stereo_euroc，mono_tum，mono_kitti，mono_euroc
+
+```bsh
+# Build examples
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/RGB-D)
+
+add_executable(rgbd_tum
+Examples/RGB-D/rgbd_tum.cc)
+target_link_libraries(rgbd_tum ${PROJECT_NAME})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Stereo)
+
+add_executable(stereo_kitti
+Examples/Stereo/stereo_kitti.cc)
+target_link_libraries(stereo_kitti ${PROJECT_NAME})
+
+add_executable(stereo_euroc
+Examples/Stereo/stereo_euroc.cc)
+target_link_libraries(stereo_euroc ${PROJECT_NAME})
+
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
+
+add_executable(mono_tum
+Examples/Monocular/mono_tum.cc)
+target_link_libraries(mono_tum ${PROJECT_NAME})
+
+add_executable(mono_kitti
+Examples/Monocular/mono_kitti.cc)
+target_link_libraries(mono_kitti ${PROJECT_NAME})
+
+add_executable(mono_euroc
+Examples/Monocular/mono_euroc.cc)
+target_link_libraries(mono_euroc ${PROJECT_NAME})
+```
+
 
 # 6. *使用摄像头或视频运行 ORB-SLAM2（3pt, 1h）
+
++ 用的虚拟机，摄像头设置起来比较麻烦，这里视频运行 code/myvideo.mp4。
+
+
+
